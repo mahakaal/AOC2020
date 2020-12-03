@@ -57,19 +57,19 @@ Starting at the top-left corner of your map and following a slope of right 3 and
 
 '''
 
-    from math import prod
+from math import prod
 
-    def hit_trees(map, dx, dy):
-        return sum([line[(dx * i) % len(line)] == '#' for i,line in enumerate(entries[::dy])])
+def hit_trees(map, dx, dy):
+    return sum([line[(dx * i) % len(line)] == '#' for i,line in enumerate(entries[::dy])])
 
-    with open("input.txt", "r") as file:
-        entries = [x.strip('\n') for x in file.readlines()]
+with open("input.txt", "r") as file:
+    entries = [x.strip('\n') for x in file.readlines()]
 
-    # part 1
-    #print(sum([line[(3 * i) % len(line)] == '#' for i,line in enumerate(entries)]))
+# part 1
+#print(sum([line[(3 * i) % len(line)] == '#' for i,line in enumerate(entries)]))
 
-    print(hit_trees(entries, 3, 1))
+print(hit_trees(entries, 3, 1))
 
-    # part 2
-    slopes = [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)]
-    print(prod([hit_trees(entries, dx, dy) for dx,dy in slopes]))
+# part 2
+slopes = [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)]
+print(prod([hit_trees(entries, dx, dy) for dx,dy in slopes]))
