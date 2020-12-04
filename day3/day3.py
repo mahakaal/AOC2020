@@ -78,7 +78,7 @@ Your puzzle answer was 1478615040.
 from math import prod
 
 def hit_trees(map, dx, dy):
-    return sum([line[(dx * i) % len(line)] == '#' for i,line in enumerate(entries[::dy])])
+    return sum([line[(dx * i) % len(line)] == '#' for i,line in enumerate(map[::dy])])
 
 with open("input.txt", "r") as file:
     entries = [x.strip('\n') for x in file.readlines()]
