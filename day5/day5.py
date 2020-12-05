@@ -78,13 +78,21 @@ def get_seat_id(boarding_pass):
 
     return row * 8 + column
 
+def binary_search(bpass):
+    rown, coln = int(bpass[:7].replace('F', '0').replace('B', '1'), 2), \
+                 int(bpass[7:].replace('L', '0').replace('R', '1'), 2)
+
+    return rown * 8 + coln
+
 commands = {'F': lower, 'B': upper, 'L': lower, 'R': upper}
 
 with open('input.txt') as file:
     boarding_passes = file.read().strip().split("\n")
 
 seat_ids = sorted([get_seat_id(boarding_pass) for boarding_pass in boarding_passes])
+seat_ids2 = sorted([binary_search(boarding_pass) for boarding_pass in boarding_passes])
 print("Max seat id is %d" % max(seat_ids))
+print("Max seat id is %d" % max(seat_ids2))
 
 seat_id = [seat_ids[i] + 1 for i in range(len(seat_ids) -1) if seat_ids[i + 1] - seat_ids[i] == 2]
 print("My seat id is %d" % seat_id[0])
