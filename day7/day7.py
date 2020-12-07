@@ -1,10 +1,7 @@
-import re
-
 with open(r'input.txt') as file:
     lines = file.read().strip().split("\n")
 
 def rule_parser(lines):
-
     bag_dict = {}
 
     for line in lines:
@@ -35,15 +32,9 @@ def get_bag_total(rules, bag="shiny gold"):
     count = 0
 
     for current_bag, num in rules[bag].items():
+        count += num * (get_bag_total(rules, bag=current_bag) + 1)
 
-        if rules[current_bag] == {}:
-            return count + 1
-        else:
-            count += num * get_bag_total(rules, current_bag)
-
-    return count + 1
-
-
+    return count
 
 rules = rule_parser(lines)
 print(len(get_containers(rules)))
