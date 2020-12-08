@@ -16,7 +16,9 @@ Inside the program, you'll find the question with the 2 *correct* answers (Each 
 ## Weapon of choice
 
 Language: Python 3.8
+
 IDE/Editor: PyCharm/Vscode
+
 O.S.: Mac OS
 
 ## Misc
