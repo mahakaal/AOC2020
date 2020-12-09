@@ -110,7 +110,9 @@ def get_contiguous(invalid, xmas):
 
         for j in range(i + 1, len(xmas)):
             current = xmas[j]
-            sum, min, max = (sum + current), (min if min < current else current), (max if max > current else current)
+            sum, min, max = (sum + current), \
+                            (min if min < current else current), \
+                            (max if max > current else current)
 
             if sum > invalid:
                 break
