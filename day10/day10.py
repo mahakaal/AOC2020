@@ -142,6 +142,7 @@ What is the total number of distinct ways you can arrange the adapters to connec
 
 Your puzzle answer was 7086739046912.
 '''
+
 from collections import Counter
 
 with open(r'input.txt') as file:
